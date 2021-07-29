@@ -1,0 +1,45 @@
+{
+    "version": "0",
+    "id": "4cbedb0f-4dfd-4c8e-9e57-0acded092527",
+    "detail-type": "v2.audits.entitytype.{id}.entityid.{id}",
+    "source": "aws.partner/genesys.com/cloud/bb14bed0-f8f9-445d-b9d1-10cecb8569d6/quickstart-test",
+    "account": "123456789",
+    "time": "2021-06-25T15:11:52Z",
+    "region": "us-east-1",
+    "resources": [],
+    "detail": {
+        "topicName": "v2.audits.entitytype.UserPresence.entityid.278522be-1683-4877-8257-4164a177be89",
+        "version": "2",
+        "eventBody": {
+            "id": "b8775049-2993-450d-97d7-5d7c784d7cc9",
+            "userId": "278522be-1683-4877-8257-4164a177be89",
+            "username": {
+                "id": ""
+            },
+            "clientId": {},
+            "serviceName": "Presence",
+            "eventTime": "2021-06-25T15:11:52.000Z",
+            "action": "Update",
+            "entityType": "UserPresence",
+            "entity": {
+                "id": "278522be-1683-4877-8257-4164a177be89",
+                "name": "John Doe"
+            },
+            "propertyChanges": [
+                {
+                    "property": "PRESENCE",
+                    "oldValues": [
+                        "Break"
+                    ],
+                    "newValues": [
+                        "Available"
+                    ]
+                }
+            ]
+        },
+        "metadata": {
+            "CorrelationId": "b61df0b3-9e33-444b-a455-1c92a33ef4e2-archival"
+        },
+        "timestamp": "2021-06-25T15:11:52.435Z"
+    }
+}

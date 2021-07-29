@@ -1,0 +1,1 @@
+table_name = 'eb_user_presence'
