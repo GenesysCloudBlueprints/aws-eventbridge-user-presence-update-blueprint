@@ -245,6 +245,6 @@ $RECYCLE.BIN/
 samconfig.toml
 packaged.y*ml
 .taskcat_overrides.yml
-
+.aws-sam
 
 # End of https://www.gitignore.io/api/osx,linux,python,windows,pycharm,visualstudiocode

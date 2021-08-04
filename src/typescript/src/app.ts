@@ -1,4 +1,8 @@
+// This is the entry point to the Lambda function.
+// lambdaHandler is called when the Lambda is invoked. It will receive the EventBridge user presence payload as the `event` parameter
+
 import fs from 'fs'
+import path from 'path'
 import AWS from 'aws-sdk'
 
 import { Marshaller } from './model/user_presence/marshaller/Marshaller'
@@ -64,9 +68,10 @@ function generateReturnBody(statusCode: number, message: string) {
 }
 
 //  For running locally. Pass in the path to a valid event in a JSON file to test
-if (process.env['LAMBDA_ENV'] !== 'true') {
+const filePath = process.argv[2]
+if (filePath !== undefined && filePath.includes(path.basename(filePath))) {
     try {
-        const data = fs.readFileSync(process.argv[2], 'utf8')
+        const data = fs.readFileSync(filePath, 'utf8')
     
         lambdaHandler(JSON.parse(data))
             .then((body) => {

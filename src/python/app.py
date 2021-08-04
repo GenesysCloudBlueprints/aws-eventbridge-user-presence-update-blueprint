@@ -1,3 +1,6 @@
+# This is the entry point to the Lambda function.
+# lambda_handler is called when the Lambda is invoked. It will receive the EventBridge user presence payload as the `event` parameter
+
 import json
 import sys
 import os

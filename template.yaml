@@ -36,6 +36,7 @@ Resources:
       CodeUri: src/python
       Handler: app.lambda_handler
       Runtime: python3.8
+      Timeout: 10
       Events:
         EventBridgeRule:
           Type: EventBridgeRule
@@ -51,9 +52,10 @@ Resources:
   EventBridgeFunctionNode:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: src/typescript/dist
-      Handler: app.lambdaHandler
+      CodeUri: ./src/typescript
+      Handler: dist/app.lambdaHandler
       Runtime: nodejs14.x
+      Timeout: 10
       Events:
         EventBridgeRule:
           Type: EventBridgeRule

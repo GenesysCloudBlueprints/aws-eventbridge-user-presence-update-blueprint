@@ -1,5 +1,7 @@
 {
-  "main": "src/index.ts",
+  "main": "src/app.ts",
+  "name": "aws-eventbridge-user-presence-update-blueprint",
+  "version": "1.0.0",
   "scripts": {
     "compile": "tsc"
   },
