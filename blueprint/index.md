@@ -107,7 +107,7 @@ You must be authenticated to use the CLI before running the above command
 :::
 
 Choose an appropriate stack name when prompted.  
-The parameter `EventSourceName` must be the event source name noted from the [Configure your EventBridge software as a service (SaaS) integration](#configure-your-eventbridge-software-as-a-service-(saas)-integration "Goes to the Configure your EventBridge software as a service (SaaS) integration section") step.
+The parameter `EventSourceName` must be the event source name noted from the [Configure your EventBridge software as a service (SaaS) integration](#configure-your-eventbridge-software-as-a-service-saas-integration "Goes to the Configure your EventBridge software as a service (SaaS) integration section") step.
 
 ### Trigger a User Presence update
 
