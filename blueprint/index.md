@@ -14,7 +14,7 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 ![Diagram for the AWS EventBridge - Write User Presence Updates to Dynamo Blueprint](images/user-presence-dynamo.png "Diagram for the AWS EventBridge - Write User Presence Updates to Dynamo Blueprint")
 
 * [Solution components](#solution-components "Goes to the Solutions components section")
-* [Software development kits (SDKs)](#software-development-kits-sdks "Goes to the Software development kits (SDKs) section")
+* [Software development kits (SDKs)](#software-development-kits-sdks "Goes to the Software development kits section")
 * [Prerequisites](#prerequisites "Goes to the Prerequisites section")
 * [Implementation steps](#implementation-steps "Goes to the Implementation steps section")
 * [Additional resources](#additional-resources "Goes to the Additional resources section")
@@ -22,26 +22,25 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 ## Solution components
 
 * **[Genesys Cloud](https://www.genesys.com/genesys-cloud "Opens the Genesys Cloud website")** - A suite of Genesys cloud services for enterprise-grade communications, collaboration, and contact center management. You create and manage OAuth clients in Genesys Cloud.
-* **[AWS SAM CLI](https://aws.amazon.com/serverless/sam/ "Opens the AWS SAM CLI website")** - A cross-platform CLI that provides a Lambda-like execution environment that lets you locally build, test, and debug applications defined by SAM templates.
-* **[AWS DynamoDB](https://aws.amazon.com/dynamodb/ "Opens the AWS DynamoDB website")** - A fully managed NoSQL database service that provides fast and predictable performance with seamless scalability.
-* **[AWS Lambda](https://aws.amazon.com/lambda/ "Opens the AWS Lambda website")** - A compute service that lets you run code without provisioning or managing servers.
-* **[AWS EventBridge](https://aws.amazon.com/eventbridge/ "Opens the AWS EventBridge website")** - A serverless event bus that makes it easier to build event-driven applications at scale using events generated from your applications, integrated Software-as-a-Service (SaaS) applications, and AWS services.
+* **[AWS Serverless Application Model (SAM) Command Line Interface (CLI)](https://aws.amazon.com/serverless/sam/ "Opens the AWS SAM CLI website")** - A cross-platform CLI that provides a Lambda-like execution environment for locally building, testing, and debugging applications defined by SAM templates.
+* **[Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "Opens the Amazon DynamoDB website")** - A highly available, highly scalable NoSQL database that provides fast and predictable performance in a multi-region environment.
+* **[AWS Lambda](https://aws.amazon.com/lambda/ "Opens the AWS Lambda website")** - A serverless computing service for running code without creating or maintaining the underlying infrastructure.
+* **[Amazon EventBridge](https://aws.amazon.com/eventbridge/ "Opens the Amazon EventBridge website")** - A scalable, serverless event bus that streams real-time data to selected targets based on custom routing rules.
 * **[AWS CloudFormation](https://aws.amazon.com/cloudformation/ "Opens the AWS CloudFormation website")** - A service that gives developers and businesses an easy way to create a collection of related AWS and third-party resources, and provision and manage them in an orderly and predictable fashion.
 * **[Node.js](https://nodejs.org/en/ "Opens the NodeJs website")** - An open-source, cross-platform JavaScript runtime environment.
-* **[Python](https://www.python.org/ "Opens the Python website")** - An interpreted high-level general-purpose programming language.
+* **[Python](https://www.python.org/ "Opens the Python website")** - An interpreted, high-level programming language that is used to quickly build modularized, object-oriented programs.
 
 ## Software development kits (SDKs)
 
-* **[AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/ "Opens the AWS SDK for Python (Boto3) page on the Amazon website")** - The AWS SDK for Python. Boto3 makes it easy to integrate your Python application, library, or script with AWS services including, Amazon S3, Amazon EC2, Amazon DynamoDB. This blueprint uses Boto3 for writing user presence updates to DynamoDB.
-
-* **[AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/ "Opens the AWS SDK for JavaScript page on the Amazon website")** - AWS SDK for JavaScript Client for Node.js, Browser and React Native. This blueprint uses the AWS SDK or JavaScript for writing user presence updates to DynamoDB.
+* **[AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/ "Opens the AWS SDK for Python (Boto3) page on the Amazon website")** - Enables developers to build and deploy Python applications that integrate with AWS services. This blueprint uses Boto3 to write user presence updates to Amazon DynamoDB.
+* **[AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/ "Opens the AWS SDK for JavaScript page on the Amazon website")** - Enables developers to build and deploy JavaScript applications that use AWS services. This blueprint uses the AWS SDK for JavaScript to write user presence updates to DynamoDB.
 
 ## Prerequisites
 
 ### Specialized knowledge
 
-* Knowledge of AWS services including SAM, DynamoDB, Lambda, EventBridge and CloudFormation
-* Experience with TypeScript, JavaScript or Python
+* AWS Cloud Practitioner-level knowledge of AWS CloudFormation, AWS IAM, AWS Lambda, AWS SAM CLI, Amazon DynamoDB, and Amazon EventBridge
+* Experience with TypeScript, JavaScript, or Python
 
 ### Genesys Cloud account
 
@@ -49,9 +48,9 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 
 ### Third-party software
 
-* Python installed. Version used: 3.8.10. For more information, see [Download Python](https://www.python.org/downloads/ "Opens the Download Python page") on the Python website.
-* Node.js installed. Version used: 14.0.0. For more information, see [Node.js](https://nodejs.org/en/ "Opens the Node.js page") on the Node.js website.
-* AWS SAM CLI installed. Version used: 1.23.0. For more information, see [Install AWS SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html "Opens the Install AWS SAM CLI page") on the AWS website.
+* Python version 3.8.10 or higher. For more information, see [Download Python](https://www.python.org/downloads/ "Opens the Download Python page") on the Python website.
+* Node.js version 14.0.0 or higher. For more information, see [Node.js](https://nodejs.org/en/ "Opens the Node.js page") on the Node.js website.
+* AWS SAM CLI version 1.23.0 or higher. For more information, see [Install AWS SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html "Opens the Install AWS SAM CLI page") on the AWS website.
 
 ## Implementation steps
 
