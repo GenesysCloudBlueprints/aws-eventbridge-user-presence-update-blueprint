@@ -64,21 +64,23 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 
 ### Clone the repository containing the project files
 
-1. Clone the [aws-eventbridge-user-presence-update-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint repository in GitHub") repository from GitHub.
+1. Clone the [aws-eventbridge-user-presence-update-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint repository in GitHub") repository from GitHub to your local environment.
 
-### Enable the Amazon EventBridge integration in your Genesys Cloud account
+### Enable the Amazon EventBridge Source integration in your Genesys Cloud organization
 
-:::primary
-**Note**: This step is only necessary if the Amazon EventBridge integration is not yet enabled in your Genesys Cloud account.  
-:::
+1. In Genesys Cloud, install an Amazon EventBridge Source integration. For more information, see [Install Amazon EventBridge integration from Genesys AppFoundry](https://help.mypurecloud.com/?p=228013 "Goes to the Install Amazon EventBridge integration from Genesys AppFoundry article") in the Genesys Cloud Resource Center.
 
-**Danna Question**: The Genesys Cloud RC talks about installing, configuring, and "setting up" an Amazon EventBridge integration. Which of these corresponds to "enable"?
+2. Configure the integration with the following settings:
+  * **AWS Account ID**: Your AWS account ID
+  * **AWS Account region**: Your [AWS account region](/api/rest/ "Goes to the Platform API page in the Genesys Cloud Developer Center")
+  * **Event Source Suffix**: Your preferred suffix that identifies the source of the events
+  * **Topic Filtering**: Select `v2.audits.entitytype.{id}.entityid.{id}`. This value corresponds to the event action on the AWS lambda function.
 
-1. Install and configure an Amazon EventBridge integration in Genesys Cloud. For more information, see [About the Amazon EventBridge integration](https://help.mypurecloud.com/?p=227937 "Goes to the About the Amazon EventBridge integration article in the Genesys Cloud Resource Center").
+    ![Topic filtering](images/topic-filtering.png "Topic filtering selection")
+
+  For more information, see [Configure the Amazon EventBridge integration](https://help.mypurecloud.com/?p=228016 "Goes to the Configure the Amazon EventBridge integration article") in the Genesys Cloud Resource Center.
 
 ### Configure your EventBridge software as a service (SaaS) integration
-
-**Danna Question**: Where do they complete these steps?
 
 1. Configure your [EventBridge software as a service (SaaS)](https://console.aws.amazon.com/events/home?region=us-east-1#/partners) integration, and note the event source name (for example, `aws.partner/example.com/1234567890/test-event-source`).
 
