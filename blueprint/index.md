@@ -1,5 +1,5 @@
 ---
-title: AWS EventBridge - Write User Presence Updates to Dynamo
+title: AWS EventBridge - Write user presence updates to Dynamo
 author: ronan.watkins
 indextype: blueprint
 icon: blueprint
@@ -64,53 +64,71 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 
 ### Clone the repository containing the project files
 
-Clone the [aws-eventbridge-user-presence-update-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint repository in GitHub") repository from GitHub.
+1. Clone the [aws-eventbridge-user-presence-update-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint repository in GitHub") repository from GitHub.
 
 ### Enable the Amazon EventBridge integration in your Genesys Cloud account
 
-This step is only necessary if the Amazon EventBridge integration is not yet enabled in your Genesys Cloud account.  
+:::primary
+**Note**: This step is only necessary if the Amazon EventBridge integration is not yet enabled in your Genesys Cloud account.  
+:::
 
-Follow the steps in [About the Amazon EventBridge integration](https://help.mypurecloud.com/articles/about-the-amazon-eventbridge-integration/ "Opens the About the Amazon EventBridge integration on the Genesys Cloud Resource Centre").
+**Danna Question**: The Genesys Cloud RC talks about installing, configuring, and "setting up" an Amazon EventBridge integration. Which of these corresponds to "enable"?
+
+1. Install and configure an Amazon EventBridge integration in Genesys Cloud. For more information, see [About the Amazon EventBridge integration](https://help.mypurecloud.com/?p=227937 "Goes to the About the Amazon EventBridge integration article in the Genesys Cloud Resource Center").
 
 ### Configure your EventBridge software as a service (SaaS) integration
 
-Configure your [EventBridge software as a service (SaaS)](https://console.aws.amazon.com/events/home?region=us-east-1#/partners) integration, and note the event source name (e.g., aws.partner/example.com/1234567890/test-event-source). Before proceeding, ensure that your event source is listed as Pending.
+**Danna Question**: Where do they complete these steps?
+
+1. Configure your [EventBridge software as a service (SaaS)](https://console.aws.amazon.com/events/home?region=us-east-1#/partners) integration, and note the event source name (for example, `aws.partner/example.com/1234567890/test-event-source`).
+
+2. Before proceeding, ensure that your event source is listed as **Pending**.
 
 ### Edit the TypeScript config file
 
-This is only necessary if you want to use the TypeScript lambda. Feel free to remove the source code of either Lambda function and remove the references to it from `template.yml` if you don't wish to use it.  
+:::primary
+**Note**: This is necessary only if you want to use the TypeScript lambda. If you do not want to use the TypeScript lambda, feel free to remove the source code of either Lambda function and remove the references to it from the `template.yml` file.  
+:::
 
-Firstly edit the `region` value in `src/typescript/src/config.ts` with your AWS account region. The `table_name` value must always correspond with the `EventBridgeUserPresenceTable` in `template.yaml`.  
+1. In your local copy of the [aws-eventbridge-user-presence-update-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint repository in GitHub") repository, edit the TypeScript config file.
+
+  i. Edit the `region` value in `src/typescript/src/config.ts` with your AWS account region.
+
+  ii. Verify that the `table_name` value corresponds with the `EventBridgeUserPresenceTable` value in `template.yaml`.  
+
+**Danna Question**: Is the extension Yml or yaml? Instead of saying, "corresponds with", could I say, "is the same as"?
 
 ### Deploy the application
 
-The application needs to be built before it can be deployed. The SAM CLI will resolve the dependencies of both lambda functions, build them and store the artifacts in a directory named `.aws-sam`.  
-From the repo root, run the following command:
+1. Build the application. To do this, from the repo root, run the following command:
 
 ```
 sam build
 ```
+The SAM CLI resolves the dependencies of both lambda functions, builds them, and stores the artifacts in a directory named `.aws-sam`.
 
-The next step is to deploy the application. The following command will use CloudFormation to create the necessary resources for this application (Roles, Lambdas, DynamoDB Table etc).
+
+2. Deploy the application. The following command will use CloudFormation to create the necessary resources for this application (roles, lambdas, DynamoDB table, and so on).
 
 :::primary
-This command will create resources in your AWS account and incur costs
+This command creates resources in your AWS account and incurs costs.
+
+You must be authenticated to use the CLI before running the following command
 :::
+
+**Danna Question**: Do we need more specifics about the costs here?
 
 ```
 sam deploy --guided
 ```
 
-:::primary
-You must be authenticated to use the CLI before running the above command
-:::
-
 Choose an appropriate stack name when prompted.  
+
 The parameter `EventSourceName` must be the event source name noted from the [Configure your EventBridge software as a service (SaaS) integration](#configure-your-eventbridge-software-as-a-service-saas-integration "Goes to the Configure your EventBridge software as a service (SaaS) integration section") step.
 
-### Trigger a User Presence update
+### Trigger a user presence update
 
-From Genesys Cloud, update a user presence in the organization associated with the EventBridge integration.
+From Genesys Cloud, update a user presence in the organization that is associated with the EventBridge integration.
 
 ### View the User Presence table in DynamoDB
 
@@ -168,4 +186,4 @@ sam local invoke EventBridgeFunctionNode --event ./events/OAuthClientDelete.json
 
 * [SAM CLI developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.html "Opens the SAM CLI developer guide")
 * [AWS EventBridge user guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html "Opens the AWS EventBridge user guide")
-* The [aws-eventbridge-user-presence-update-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint repository in GitHub") repository in GitHub
+* The [AWS EventBridge - Write user presence updates to Dynamo blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint repository in GitHub") repository in GitHub
