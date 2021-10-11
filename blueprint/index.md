@@ -1,5 +1,5 @@
 ---
-title: AWS EventBridge - Write user presence updates to Dynamo
+title: AWS EventBridge - Write user presence updates to DynamoDB
 author: ronan.watkins
 indextype: blueprint
 icon: blueprint
@@ -50,13 +50,13 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 * An administrator account with permissions to access the following services:
   * AWS Identity and Access Management (IAM)
   * AWS Lambda
-* AWS credentials. For more information about setting up your AWS credentials on your local machine, see [About credential providers](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html "Goes to The shared config and credentials files page") in AWS documentation.
-* AWS SAM CLI version 1.23.0 or later. For more information, see [Install AWS SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html "Goes to the Install AWS SAM CLI page") on the AWS website.
+* AWS credentials. For more information about setting up your AWS credentials on your local machine, see [About credential providers](https://docs.aws.amazon.com/sdkref/latest/guide/creds-config-files.html "Opens The shared config and credentials files") in AWS documentation.
+* AWS SAM CLI version 1.23.0 or later. For more information, see [Install AWS SAM](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html "Opens Installing AWS SAM CLI") on the AWS website.
 
 ### Third-party software
 
-* Python version 3.8.10 or later. For more information, see [Download Python](https://www.python.org/downloads/ "Opens the Download Python page") on the Python website.
-* Node.js version 14.0.0 or later. For more information, see [Node.js](https://nodejs.org/en/ "Opens the Node.js page") on the Node.js website.
+* Python version 3.8.10 or later. For more information, see [Download Python](https://www.python.org/downloads/ "Opens Download the latest version of Python") on the Python website.
+* Node.js version 14.0.0 or later. For more information, see [Node.js](https://nodejs.org/en/ "Opens Download Node.js") on the Node.js website.
 
 ## Implementation steps
 
@@ -70,7 +70,7 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 
 ### Clone the repository containing the project files
 
-1. Clone the [aws-eventbridge-user-presence-update-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint repository in GitHub") repository from GitHub to your local environment.
+1. Clone the [aws-eventbridge-user-presence-update-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint") repository from GitHub to your local environment.
 
 ### Enable the Amazon EventBridge Source integration in your Genesys Cloud organization
 
@@ -88,7 +88,7 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 
 ### Configure your EventBridge Software as a Service (SaaS) integration
 
-1. In your AWS account, configure your [EventBridge software as a service (SaaS)](https://console.aws.amazon.com/events/home?region=us-east-1#/partners) integration.
+1. In your AWS account, configure your [EventBridge software as a service (SaaS)](https://console.aws.amazon.com/events/home?region=us-east-1#/partners "Opens your AWS management console") integration.
 2. Make a note of the event source name (for example, `aws.partner/example.com/1234567890/test-event-source`).
 3. Before proceeding to the next step, verify that your event source is listed as **Pending**.
 
@@ -107,13 +107,13 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 
 ### Build and deploy the application
 
+You must build the application before you deploy it. The SAM CLI resolves the dependencies of both Lambda functions, builds them, and stores the artifacts in a directory named `.aws-sam`.  
+
 1. To build the application, from the repo root, run the following command:
 
   ```
   sam build
   ```
-When this command runs, the SAM CLI resolves the dependencies of both Lambda functions, builds them, and stores the artifacts in a directory named `.aws-sam`.
-
 
 2. Deploy the application. The following command will use CloudFormation to create the necessary resources for this application (roles, Lambdas, DynamoDB table, and so on).
 
@@ -195,4 +195,4 @@ sam local invoke EventBridgeFunctionNode --event ./events/OAuthClientDelete.json
 
 * [SAM CLI developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.html "Opens the SAM CLI developer guide")
 * [AWS EventBridge user guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html "Opens the AWS EventBridge user guide")
-* The [AWS EventBridge - Write user presence updates to Dynamo blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint repository in GitHub") repository in GitHub
+* [aws-eventbridge-user-presence-update-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint repository in GitHub") repository in GitHub
