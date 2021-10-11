@@ -14,7 +14,7 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 ![Write user presence updates to DynamoDB](images/user-presence-dynamo.png "Write user presence updates to DynamoDB")
 
 * [Solution components](#solution-components "Goes to the Solutions components section")
-* [Software development kits (SDKs)](#software-development-kits-sdks "Goes to the Software development kits section")
+* [Software development kits (SDKs)](#software-development-kits--sdks "Goes to the Software development kits (SDKs) section")
 * [Prerequisites](#prerequisites "Goes to the Prerequisites section")
 * [Implementation steps](#implementation-steps "Goes to the Implementation steps section")
 * [Additional resources](#additional-resources "Goes to the Additional resources section")
@@ -30,7 +30,7 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 * **[Node.js](https://nodejs.org/en/ "Opens the NodeJs website")** - An open-source, cross-platform JavaScript runtime environment.
 * **[Python](https://www.python.org/ "Opens the Python website")** - An interpreted, high-level programming language that is used to quickly build modularized, object-oriented programs.
 
-## Software development kits (SDKs)
+## Software development kits (SDKS)
 
 * **[AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/ "Opens the AWS SDK for Python (Boto3) page on the Amazon website")** - Enables developers to build and deploy Python applications that integrate with AWS services. This blueprint uses Boto3 to write user presence updates to Amazon DynamoDB.
 * **[AWS SDK for JavaScript](https://aws.amazon.com/sdk-for-javascript/ "Opens the AWS SDK for JavaScript page on the Amazon website")** - Enables developers to build and deploy JavaScript applications that use AWS services. This blueprint uses the AWS SDK for JavaScript to write user presence updates to DynamoDB.
@@ -60,7 +60,7 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 
 ## Implementation steps
 
-* [Clone the repository containing the project files](#clone-the-repository-containing-the-project-files "Goes to the Clone the repository containing the project files section")
+* [Clone the repository that contains the project files](#clone-the-repository-that-contains-the-project-files "Goes to the Clone the repository containing the project files section")
 * [Enable the Amazon EventBridge Source integration in your Genesys Cloud account](#enable-the-amazon-eventbridge-source-integration-in-your-genesys-cloud-account "Goes to the Enable the Amazon EventBridge Source integration in your Genesys Cloud account section")
 * [Configure your EventBridge software as a service (SaaS) integration](#configure-your-eventbridge-software-as-a-service--saas--integration "Goes to the Configure your EventBridge software as a service (SaaS) integration section")
 * [Edit the TypeScript config file](#edit-the-typescript-config-file "Goes to the Edit the TypeScript config file section")
@@ -68,7 +68,7 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 * [Trigger a user presence update](#trigger-a-user-presence-update "Goes to the Trigger a user presence update section")
 * [View the user presence table in DynamoDB](#view-the-user-presence-table-in-dynamodb "Goes to the View the user presence table in DynamoDB section")
 
-### Clone the repository containing the project files
+### Clone the repository that contains the project files
 
 1. Clone the [aws-eventbridge-user-presence-update-blueprint](https://github.com/GenesysCloudBlueprints/aws-eventbridge-user-presence-update-blueprint "Opens the aws-eventbridge-user-presence-update-blueprint") repository from GitHub to your local environment.
 
@@ -84,7 +84,7 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 
     ![Topic filtering](images/topic-filtering.png "Topic filtering selection")
 
-  For more information, see [Configure the Amazon EventBridge integration](https://help.mypurecloud.com/?p=228016 "Goes to the Configure the Amazon EventBridge integration article") in the Genesys Cloud Resource Center.
+For more information, see [Configure the Amazon EventBridge integration](https://help.mypurecloud.com/?p=228016 "Goes to the Configure the Amazon EventBridge integration article") in the Genesys Cloud Resource Center.
 
 ### Configure your EventBridge Software as a Service (SaaS) integration
 
@@ -141,11 +141,11 @@ You must build the application before you deploy it. The SAM CLI resolves the de
 
 3. Select the eb_user_presence table and verify that the User Presence entry has the correct values for `user_id`, `updated_on` and `presence`.
 
-### Running locally
+## Run locally
 
 For debugging purposes, you can run the Python and TypeScript functions for this solution locally.  
 
-#### Run locally using the TypeScript functions
+### Run locally using the TypeScript functions
 
 1. Log a user presence update event to CloudWatch and save the contents to the `events/UserPresenceChange.json` file.  
 
@@ -161,7 +161,7 @@ For debugging purposes, you can run the Python and TypeScript functions for this
   ./run_local.sh node
   ```
 
-#### Run locally using the Python functions
+### Run locally using the Python functions
 
 1. Log a user presence update event to CloudWatch and save the contents to the `events/UserPresenceChange.json` file.  
 
@@ -177,7 +177,7 @@ For debugging purposes, you can run the Python and TypeScript functions for this
   /.run_local.sh python
   ```
 
-#### Run locally using the SAM CLI
+### Run locally using the SAM CLI
 
 To run the Lambdas locally and imitate the AWS Lambda environment, use the following commands.
 
