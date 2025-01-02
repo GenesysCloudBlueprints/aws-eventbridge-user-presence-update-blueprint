@@ -14,7 +14,7 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 ![Write user presence updates to DynamoDB](images/user-presence-dynamo.png "Write user presence updates to DynamoDB")
 
 * [Solution components](#solution-components "Goes to the Solutions components section")
-* [Software development kits (SDKs)](#software-development-kits--sdks "Goes to the Software development kits (SDKs) section")
+* [Software development kits (SDKs)](#software-development-kits-sdks "Goes to the Software development kits (SDKs) section")
 * [Prerequisites](#prerequisites "Goes to the Prerequisites section")
 * [Implementation steps](#implementation-steps "Goes to the Implementation steps section")
 * [Additional resources](#additional-resources "Goes to the Additional resources section")
@@ -61,7 +61,7 @@ This Genesys Cloud Developer Blueprint provides an example of how to write a Lam
 ## Implementation steps
 
 * [Clone the repository that contains the project files](#clone-the-repository-that-contains-the-project-files "Goes to the Clone the repository containing the project files section")
-* [Enable the Amazon EventBridge Source integration in your Genesys Cloud account](#enable-the-amazon-eventbridge-source-integration-in-your-genesys-cloud-account "Goes to the Enable the Amazon EventBridge Source integration in your Genesys Cloud account section")
+* [Enable the Amazon EventBridge Source integration in your Genesys Cloud organization](#enable-the-amazon-eventbridge-source-integration-in-your-genesys-cloud-organization "Goes to the Enable the Amazon EventBridge Source integration in your Genesys Cloud account section")
 * [Configure your EventBridge software as a service (SaaS) integration](#configure-your-eventbridge-software-as-a-service--saas--integration "Goes to the Configure your EventBridge software as a service (SaaS) integration section")
 * [Edit the TypeScript config file](#edit-the-typescript-config-file "Goes to the Edit the TypeScript config file section")
 * [Build and deploy the application](#build-and-deploy-the-application "Goes to the Build and deploy the application section")
